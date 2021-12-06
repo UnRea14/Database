@@ -12,7 +12,6 @@ public:
 	int Set_Value(int key, int value);
 	int Get_Value(int key);
 	int Delete_Value(int key);
-	void Print();
 };
 
 
