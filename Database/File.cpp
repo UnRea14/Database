@@ -21,7 +21,7 @@ int File::Set_Value(std::string key, std::string value)
 {//Writes to the file. returns 1 if successfull, 0 else
 	int returned = Dictionary::Set_Value(key, value);
 	if (returned != 0) {
-		this->input_file.open(this->name, std::ios::out);
+		this->input_file.open(this->name, std::ios::app);
 		if (this->input_file.is_open()) {
 			std::string value = Dictionary::Get_Value(key);
 			this->input_file << value << std::endl;
@@ -55,7 +55,10 @@ std::string File::Delete_Value(std::string key)
 			temp_file.close();
 			this->output_file.close();
 			remove(this->name.c_str());
-			rename(temp_file_name.c_str(), this->name.c_str());
+			int returned = rename(temp_file_name.c_str(), this->name.c_str());
+			if (returned != 0) {
+				std::cerr << "Error in renaming the file" << std::endl;
+			}
 		}
 	}
 	return value;
