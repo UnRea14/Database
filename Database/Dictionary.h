@@ -5,13 +5,10 @@
 class Dictionary
 {
 private:
-	std::map<int, int> dict;
+	std::map<std::string, std::string> dict;
 public:
 	Dictionary();
-	void Insert(int key, int value);
-	int Set_Value(int key, int value);
-	int Get_Value(int key);
-	int Delete_Value(int key);
+	virtual int Set_Value(std::string key, std::string value);
+	virtual std::string Get_Value(std::string key);
+	virtual std::string Delete_Value(std::string key);
 };
-
-

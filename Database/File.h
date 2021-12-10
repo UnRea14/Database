@@ -6,12 +6,12 @@
 class File: public Dictionary
 {
 	private:
-		std::ofstream file;
+		std::ofstream input_file;
+		std::ifstream output_file;
 		std::string name;
 	public:
 		File();
-		int Write();
-		int Read();
-		bool Is_Currently_Used();
+		int Set_Value(std::string key, std::string value);
+		std::string Get_Value(std::string key);
+		std::string Delete_Value(std::string key);
 };
-
