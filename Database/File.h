@@ -11,7 +11,7 @@ class File: public Dictionary
 		std::string name;
 	public:
 		File();
-		int Set_Value(std::string key, std::string value);
-		std::string Get_Value(std::string key);
-		std::string Delete_Value(std::string key);
+		virtual int Set_Value(std::string key, std::string value);
+		virtual std::string Get_Value(std::string key);
+		virtual std::string Delete_Value(std::string key);
 };

@@ -1,11 +1,11 @@
 #include "File.h"
-#include "Dictionary.h"
 #include <iostream>
 #include <string>
 #include <fstream>
 
 File::File()
 {//Creates the file
+	Dictionary::Dictionary();
 	this->name = "Database.txt";
 	this->input_file.open(this->name);
 	if (!this->input_file.is_open()) {
